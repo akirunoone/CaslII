@@ -1,0 +1,9 @@
+SAMPLE  START                 ; プログラムの先頭
+        LD        GR0,DATA1   ; GR0 に DATA1 をコピーする
+        ADDA      GR0,DATA2   ; GR0 に DATA2 を加算する
+        ST        GR0,ANS     ; GR0 を ANS にコピーする
+        RET                   ; 処理を終了する
+DATA1 	DC        123         ; 123 という値のデータの定義
+DATA2 	DC        456         ; 456 という値のデータの定義
+ANS     DS        1           ; 加算結果の格納領域の定義
+        END                   ; プログラムの末尾

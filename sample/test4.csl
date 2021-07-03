@@ -1,0 +1,14 @@
+PROG1   START                     ; プログラムの先頭
+        XOR       GR0,GR0         ; GR0 をゼロで初期化する
+        XOR       GR1,GR1         ; GR1 をゼロで初期化する
+L1      CPA       GR1,LEN         ; GR1 と LEN を比較する
+        JZE       L2              ; 等しければ L2 にジャンプする
+        ADDA      GR0,DATA,GR1    ; GR0 に DATA[GR1] を加算する
+        ADDA      GR1,=1          ; GR1 に 1 を加算する
+        JUMP      L1              ; L1 にジャンプする
+L2      ST        GR0,ANS         ; GR0 を ANS にコピーする
+        RET                       ; 処理を終了する
+DATA    DC        12,34,56,78,90  ; 配列の要素の定義
+LEN     DC        5               ; 配列の要素数の定義
+ANS     DS        1               ; 合計値の格納領域の定義
+        END                       ; プログラムの末尾
